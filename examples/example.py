@@ -1,6 +1,6 @@
 import sys
 try:
-    from IPIdentify import IPIdentify
+    from ip_identify import IPIdentify
 except ModuleNotFoundError:
     print("IPIdentify not found, install it by using pip install 'https://github.com/ABHIRAMSHIBU/IPIdentify/archive/refs/heads/develop.zip'")
     sys.exit(-1)
