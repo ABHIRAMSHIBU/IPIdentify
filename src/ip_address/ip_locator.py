@@ -34,6 +34,7 @@ class IPAPIStrategy(RequestsStrategy):
 
     def get_provider(self):
         response = super().get_provider()
+        print("Response",response)
         if response :
             response  = json.loads(response)
             assert("query" in response)
@@ -51,9 +52,8 @@ class ISPDetector:
 
     def get_provider(self):
         self.provider = self.strategy.get_provider()
-        if(not self.ip):
-            self.ip = self.strategy.ip
-            return self.provider 
+        self.ip = self.strategy.ip
+        return self.provider 
         
     def get_ip(self):
         return self.ip
@@ -62,4 +62,5 @@ if __name__=="__main__":
     isp_detector = ISPDetector(IPAPIStrategy())
     print(isp_detector.get_provider())
     print(isp_detector.get_ip())
-
+    print(isp_detector.get_provider())
+    print(isp_detector.get_ip())
